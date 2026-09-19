@@ -1,0 +1,27 @@
+[project]
+name = "research-agent"
+version = "0.1.0"
+description = "A multi-agent research assistant built on Claude: planner, parallel web researchers, critic, and writer."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=1.7",
+    "pydantic>=2.7",
+    "rich>=13",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[project.scripts]
+research-agent = "research_agent.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["research_agent"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
